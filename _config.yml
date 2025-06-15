@@ -22,8 +22,6 @@ url     : "https://vipul-kumar-ambasta.github.io"
 baseurl : # does not include hostname
 title   : Vipul's website
 description: > A professional website built with the help of Jekyll and Github
-  Your Site Description
-
 
 ## => Language and Timezone
 ##############################
