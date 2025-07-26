@@ -157,3 +157,31 @@ html, body {
   background-color: #edf5df !important;
 }
 
+
+/*Dark mode*/
+
+/* Light mode (default styles) are already in your CSS */
+
+/* DARK MODE styles (when body has class="dark-mode") */
+
+.navbar {
+  background-color: #00cccc;
+}
+html.dark-mode,
+body.dark-mode {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+}
+
+/* Example: links inside dark mode */
+html.dark-mode,
+body.dark-mode a {
+  color: #87cefa !important;
+}
+
+/* Navbar background in dark mode */
+html.dark-mode,
+body.dark-mode .navbar {
+  background-color: #1e1e1e !important;
+}
+
