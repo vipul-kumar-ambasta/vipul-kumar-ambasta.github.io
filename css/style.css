@@ -2,124 +2,126 @@
 
 /* Profile image */
 .profile-image {
-    display: block;
-    margin: 0 auto 20px auto;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #B0C4DE; /* soft steel blue */
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #B0C4DE; /* soft steel blue */
 }
 
 /* Name styling */
 .name {
-    color: #6A5ACD; /* soft slate blue */
-    text-align: center;
-    font-family: 'Segoe UI', sans-serif;
+  color: #6A5ACD; /* soft slate blue */
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Social icons container */
+/* Social icons row container */
 .social-icons-row {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
-/* Social icon row */
+/* Social icons list */
 .link-items.social-icons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .link-items.social-icons li {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .link-items.social-icons a {
-    color: #4682B4; /* muted blue */
-    font-size: 20px;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.2s ease;
-    display: inline-block;
+  color: #4682B4; /* muted blue */
+  font-size: 20px;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
 }
 
 .link-items.social-icons a:hover {
-    color: #6A5ACD; /* hover in slate blue */
-    transform: translateY(-3px);
+  color: #6A5ACD; /* slate blue hover */
+  transform: translateY(-3px);
 }
 
-/* Brand-specific icon hovers */
+/* Brand-specific icon hover colors */
 .link-items.social-icons .fa-linkedin-in:hover { color: #0077B5; }
-.link-items.social-icons .ai-researchgate:hover { color: #00CCBB; }
-.link-items.social-icons .fa-envelope:hover { color: #D44638; }
-.link-items.social-icons .fab.fa-x-twitter:hover { color: #000000; }
-.link-items.social-icons .ai-orcid:hover { color: #A6CE39; }
+.link-items.social-icons .ai-researchgate:hover   { color: #00CCBB; }
+.link-items.social-icons .fa-envelope:hover       { color: #D44638; }
+.link-items.social-icons .fab.fa-x-twitter:hover  { color: #000000; }
+.link-items.social-icons .ai-orcid:hover          { color: #A6CE39; }
 
-/* Links sections */
+/* Link sections (Connect, Network) */
 .links-section {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .links-section .link-list-block {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 .links-section h3 {
-    margin-bottom: 15px;
-    color: #4F4F4F; /* soft charcoal */
-    text-align: center;
+  margin-bottom: 15px;
+  color: #4F4F4F; /* soft charcoal */
+  text-align: center;
 }
 
 .link-items {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }
 
 .link-items li {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .link-items a {
-    text-decoration: none;
-    color: #6A5ACD; /* slate blue */
-    transition: color 0.2s ease;
+  text-decoration: none;
+  color: #6A5ACD; /* slate blue */
+  transition: color 0.2s ease;
 }
 
 .link-items a:hover {
-    color: #483D8B; /* dark slate on hover */
+  color: #483D8B; /* dark slate hover */
 }
 
-/* Screen reader only (accessible) */
+/* Accessibility: screen-reader only text */
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border-width: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .sr-only:focus {
-    position: static;
-    width: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
 }
 
+/* Optional gentle page background */
 body {
-  background-color: lightpink !important;
+  background-color: #F5F7FA; /* very light gray-blue */
+  color: #333;               /* dark gray text for readability */
 }
 
