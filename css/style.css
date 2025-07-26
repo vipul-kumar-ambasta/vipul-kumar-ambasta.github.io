@@ -13,13 +13,9 @@
 
 /* Styling for your name (h1.name) */
 .name {
-    /* Your current styles for .name go here if any */
-    /* Example: font-size, color, etc. */
-    text-align: center; /* Adjust this to 'left', 'center', or 'right' */
-   /*margin-right: 5px; /* Optional: Add some padding/margin from the right edge of its container */
-    /* You might need to set a max-width if it's too wide and prevents text-align from working as expected */
-    /* max-width: 250px; */ /* Example: adjust as needed */
-    /* margin-left: auto; */ /* If using max-width, this helps center or align */
+    color: #ff6347; /* Changed to tomato red */
+    text-align: center;
+    /* keep other styles as is */
 }
 
 /* NEW: Style for the row containing only social icons */
@@ -30,7 +26,6 @@
 }
 
 /* Specific styling for the Social Icons list itself */
-/* This block should now apply directly to the ul inside social-icons-row */
 .link-items.social-icons {
     display: flex; /* Arrange icons in a row */
     justify-content: center; /* Center the icons horizontally */
@@ -46,7 +41,7 @@
 }
 
 .link-items.social-icons a {
-    color: #555; /* Default icon color */
+    color: #444; /* Changed default icon color to darker gray */
     font-size: 20px; /* Size of the icons */
     text-decoration: none; /* Remove underline */
     transition: color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
@@ -54,7 +49,7 @@
 }
 
 .link-items.social-icons a:hover {
-    color: #007bff; /* General hover color */
+    color: #ff6347; /* Tomato red hover color */
     transform: translateY(-3px); /* Slight lift effect on hover */
 }
 
@@ -66,10 +61,8 @@
 .link-items.social-icons .ai-orcid:hover { color: #A6CE39; } /* ORCID green */
 
 /* General styling for link lists (Connect, Network) */
-/* This part remains mostly the same, ensuring your column layout for text links */
 .links-section {
     margin-top: 30px;
-    /* text-align: center; */
 }
 
 .links-section .link-list-block {
@@ -82,7 +75,7 @@
     text-align: center;
 }
 
-.link-items { /* This now applies to all ul.link-items, but social-icons overrides some */
+.link-items {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -95,14 +88,13 @@
 
 .link-items a {
     text-decoration: none;
-    color: #007bff;
+    color: #ff6347; /* Tomato red */
     transition: color 0.2s ease;
 }
 
 .link-items a:hover {
-    color: #0056b3;
+    color: #cc503c; /* Slightly darker tomato red */
 }
-
 
 /* For accessibility, hide text visually but keep for screen readers */
 .sr-only {
