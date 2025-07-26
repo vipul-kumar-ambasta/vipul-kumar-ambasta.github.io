@@ -1,122 +1,112 @@
 /* static/css/style.css */
 
-/* Profile image */
+/* Your existing profile-image styles */
 .profile-image {
-  display: block;
-  margin: 0 auto 20px auto;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #B0C4DE; /* soft steel blue */
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #eee;
 }
 
-/* Name styling */
+/* Styling for your name (h1.name) */
 .name {
-  color: #6A5ACD; /* soft slate blue */
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
+    color: #ff6347; /* Changed to tomato red */
+    text-align: center;
+    /* keep other styles as is */
 }
 
-/* Social icons row container */
+/* NEW: Style for the row containing only social icons */
 .social-icons-row {
-  margin-top: 20px;
-  margin-bottom: 40px;
-  text-align: center;
+    margin-top: 20px; /* Space from name/image above */
+    margin-bottom: 40px; /* Space before the "Connect", "Social", "Network" sections */
+    text-align: center; /* Center the flex container within this div */
 }
 
-/* Social icons list */
+/* Specific styling for the Social Icons list itself */
 .link-items.social-icons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+    display: flex; /* Arrange icons in a row */
+    justify-content: center; /* Center the icons horizontally */
+    flex-wrap: wrap; /* Allow icons to wrap to the next line on smaller screens */
+    gap: 25px; /* Space between icons */
+    list-style: none; /* Ensure no bullet points */
+    padding: 0;
+    margin: 0; /* Remove default list margins */
 }
 
 .link-items.social-icons li {
-  margin-bottom: 0;
+    margin-bottom: 0; /* Remove vertical margin for flex items */
 }
 
 .link-items.social-icons a {
-  color: #4682B4; /* muted blue */
-  font-size: 20px;
-  text-decoration: none;
-  transition: color 0.3s ease, transform 0.2s ease;
-  display: inline-block;
+    color: #444; /* Changed default icon color to darker gray */
+    font-size: 20px; /* Size of the icons */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    display: inline-block; /* Allows transforms */
 }
 
 .link-items.social-icons a:hover {
-  color: #6A5ACD; /* slate blue hover */
-  transform: translateY(-3px);
+    color: #ff6347; /* Tomato red hover color */
+    transform: translateY(-3px); /* Slight lift effect on hover */
 }
 
-/* Brand-specific icon hover colors */
-.link-items.social-icons .fa-linkedin-in:hover { color: #0077B5; }
-.link-items.social-icons .ai-researchgate:hover   { color: #00CCBB; }
-.link-items.social-icons .fa-envelope:hover       { color: #D44638; }
-.link-items.social-icons .fab.fa-x-twitter:hover  { color: #000000; }
-.link-items.social-icons .ai-orcid:hover          { color: #A6CE39; }
+/* Specific icon colors on hover (optional, but highly recommended for branding) */
+.link-items.social-icons .fa-linkedin-in:hover { color: #0077B5; } /* LinkedIn blue */
+.link-items.social-icons .ai-researchgate:hover { color: #00CCBB; } /* ResearchGate green */
+.link-items.social-icons .fa-envelope:hover { color: #D44638; } /* Gmail/standard email red */
+.link-items.social-icons .fab.fa-x-twitter:hover { color: #000000; } /* X/Twitter black */
+.link-items.social-icons .ai-orcid:hover { color: #A6CE39; } /* ORCID green */
 
-/* Link sections (Connect, Network) */
+/* General styling for link lists (Connect, Network) */
 .links-section {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 .links-section .link-list-block {
-  margin-bottom: 25px;
+    margin-bottom: 25px;
 }
 
 .links-section h3 {
-  margin-bottom: 15px;
-  color: #4F4F4F; /* soft charcoal */
-  text-align: center;
+    margin-bottom: 15px;
+    color: #555;
+    text-align: center;
 }
 
 .link-items {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
 }
 
 .link-items li {
-  margin-bottom: 8px;
+    margin-bottom: 8px;
 }
 
 .link-items a {
-  text-decoration: none;
-  color: #6A5ACD; /* slate blue */
-  transition: color 0.2s ease;
+    text-decoration: none;
+    color: #ff6347; /* Tomato red */
+    transition: color 0.2s ease;
 }
 
 .link-items a:hover {
-  color: #483D8B; /* dark slate hover */
+    color: #cc503c; /* Slightly darker tomato red */
 }
 
-/* Accessibility: screen-reader only text */
+/* For accessibility, hide text visually but keep for screen readers */
 .sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-.sr-only:focus {
-  position: static;
-  width: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  clip: auto;
-  white-space: normal;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 html, body {
