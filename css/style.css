@@ -1,0 +1,267 @@
+/* static/css/style.css */
+
+/* Your existing profile-image styles */
+.profile-image {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #eee;
+}
+
+/* Styling for your name (h1.name) */
+.name {
+    /* Your current styles for .name go here if any */
+    /* Example: font-size, color, etc. */
+    text-align: center; /* Adjust this to 'left', 'center', or 'right' */
+   /*margin-right: 5px; /* Optional: Add some padding/margin from the right edge of its container */
+    /* You might need to set a max-width if it's too wide and prevents text-align from working as expected */
+    /* max-width: 250px; */ /* Example: adjust as needed */
+    /* margin-left: auto; */ /* If using max-width, this helps center or align */
+}
+
+/* NEW: Style for the row containing only social icons */
+.social-icons-row {
+    margin-top: 20px; /* Space from name/image above */
+    margin-bottom: 40px; /* Space before the "Connect", "Social", "Network" sections */
+    text-align: center; /* Center the flex container within this div */
+}
+
+/* Specific styling for the Social Icons list itself */
+/* This block should now apply directly to the ul inside social-icons-row */
+.link-items.social-icons {
+    display: flex; /* Arrange icons in a row */
+    justify-content: center; /* Center the icons horizontally */
+    flex-wrap: wrap; /* Allow icons to wrap to the next line on smaller screens */
+    gap: 25px; /* Space between icons */
+    list-style: none; /* Ensure no bullet points */
+    padding: 0;
+    margin: 0; /* Remove default list margins */
+}
+
+.link-items.social-icons li {
+    margin-bottom: 0; /* Remove vertical margin for flex items */
+}
+
+.link-items.social-icons a {
+    color: #555; /* Default icon color */
+    font-size: 20px; /* Size of the icons */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    display: inline-block; /* Allows transforms */
+}
+
+.link-items.social-icons a:hover {
+    color: #007bff; /* General hover color */
+    transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+/* Specific icon colors on hover (optional, but highly recommended for branding) */
+.link-items.social-icons .fa-linkedin-in:hover { color: #0077B5; } /* LinkedIn blue */
+.link-items.social-icons .ai-researchgate:hover { color: #00CCBB; } /* ResearchGate green */
+.link-items.social-icons .fa-envelope:hover { color: #D44638; } /* Gmail/standard email red */
+.link-items.social-icons .fab.fa-x-twitter:hover { color: #000000; } /* X/Twitter black */
+.link-items.social-icons .ai-orcid:hover { color: #A6CE39; } /* ORCID green */
+
+/* General styling for link lists (Connect, Network) */
+/* This part remains mostly the same, ensuring your column layout for text links */
+.links-section {
+    margin-top: 30px;
+    /* text-align: center; */
+}
+
+.links-section .link-list-block {
+    margin-bottom: 25px;
+}
+
+.links-section h3 {
+    margin-bottom: 15px;
+    color: #555;
+    text-align: center;
+}
+
+.link-items { /* This now applies to all ul.link-items, but social-icons overrides some */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.link-items li {
+    margin-bottom: 8px;
+}
+
+.link-items a {
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.2s ease;
+}
+
+.link-items a:hover {
+    color: #0056b3;
+}
+
+
+/* For accessibility, hide text visually but keep for screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* --- My Journey Page Styles (Zigzag Timeline) --- */
+
+.journey-timeline {
+    width: 90%; /* Adjust overall width */
+    max-width: 1000px; /* Max width for larger screens */
+    margin: 50px auto; /* Center the timeline and add vertical space */
+    position: relative; /* For the central line */
+    padding-bottom: 50px; /* Space at the end */
+}
+
+/* Central vertical line */
+.journey-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px; /* Thickness of the line */
+    background-color: #444; /* Color of the line */
+    height: 100%;
+    z-index: 1; /* Ensure it's behind content */
+}
+
+.journey-step {
+    display: flex;
+    align-items: center; /* Vertically center content and media */
+    margin-bottom: 80px; /* Space between steps */
+    position: relative;
+    z-index: 2; /* Ensure steps are above the line */
+}
+
+.journey-step::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; /* Size of the circle/dot on the line */
+    height: 20px;
+    background-color: #007bff; /* Dot color */
+    border-radius: 50%;
+    z-index: 3; /* Ensure dot is on top */
+}
+
+
+.journey-step.left {
+    flex-direction: row; /* Content on left, media on right by default */
+    justify-content: flex-start; /* Align to the start */
+    padding-right: calc(50% + 40px); /* Push content to left side, accounting for line */
+}
+
+.journey-step.left .journey-media {
+    margin-left: -100px; /* Pull media closer to the line from the right */
+    order: 2; /* Place media after content */
+}
+
+.journey-step.left .journey-content {
+    margin-right: 20px; /* Space between text and media */
+    text-align: right; /* Align text to the right for left side steps */
+    order: 1; /* Place content before media */
+}
+
+.journey-step.left::after {
+    right: calc(50% - 10px); /* Position dot on the left side of the line */
+}
+
+
+.journey-step.right {
+    flex-direction: row-reverse; /* Media on left, content on right */
+    justify-content: flex-end; /* Align to the end */
+    padding-left: calc(50% + 40px); /* Push content to right side */
+}
+
+.journey-step.right .journey-media {
+    margin-right: -100px; /* Pull media closer to the line from the left */
+    order: 1; /* Place media before content */
+}
+
+.journey-step.right .journey-content {
+    margin-left: 20px; /* Space between text and media */
+    text-align: left; /* Align text to the left for right side steps */
+    order: 2; /* Place content after media */
+}
+
+.journey-step.right::after {
+    left: calc(50% - 10px); /* Position dot on the right side of the line */
+}
+
+
+.journey-content, .journey-media {
+    flex: 1; /* Distribute space equally */
+    padding: 20px; /* Padding inside the boxes */
+    background-color: #1a2a3a; /* Darker background for content boxes */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.journey-media img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block; /* Remove extra space below image */
+    margin: 0 auto; /* Center image in its container */
+}
+
+.journey-media .caption {
+    font-size: 0.9em;
+    color: #bbb;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .journey-timeline {
+        width: 95%;
+        margin-top: 20px;
+    }
+
+    .journey-timeline::before {
+        left: 20px; /* Shift line to left for mobile */
+        transform: none;
+    }
+
+    .journey-step {
+        flex-direction: column !important; /* Stack content and media vertically */
+        align-items: flex-start; /* Align items to the left */
+        margin-bottom: 50px;
+        padding-right: 0 !important;
+        padding-left: 50px !important; /* Make space for the line */
+    }
+
+    .journey-step .journey-content,
+    .journey-step .journey-media {
+        width: 100%; /* Take full width */
+        margin: 0; /* Reset margins */
+        text-align: left !important; /* Align all text left */
+        order: unset !important; /* Reset order */
+    }
+
+    .journey-step .journey-media {
+        margin-top: 20px; /* Space between content and image on mobile */
+    }
+
+    .journey-step::after {
+        left: 10px; /* Align dot with new line position */
+        right: unset; /* Reset right property */
+    }
+}
