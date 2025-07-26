@@ -109,6 +109,50 @@
     border-width: 0;
 }
 
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  /* Make social icons stack better */
+  .link-items.social-icons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Reduce padding/margin for smaller screens */
+  .links-section {
+    padding: 10px;
+  }
+
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .name {
+    font-size: 1.5rem;
+  }
+
+  .link-items a {
+    font-size: 1rem;
+  }
+}
+
+/* Make sure images never overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Optional: Add container styles if you use a .container div */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+
+
+
 html, body {
   background-color: #edf5df !important;
 }
