@@ -1,6 +1,6 @@
 /* static/css/style.css */
 
-/* Your existing profile-image styles */
+/* Profile image */
 .profile-image {
     display: block;
     margin: 0 auto 20px auto;
@@ -8,59 +8,59 @@
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #eee;
+    border: 3px solid #B0C4DE; /* soft steel blue */
 }
 
-/* Styling for your name (h1.name) */
+/* Name styling */
 .name {
-    color: #ff6347; /* Changed to tomato red */
+    color: #6A5ACD; /* soft slate blue */
     text-align: center;
-    /* keep other styles as is */
+    font-family: 'Segoe UI', sans-serif;
 }
 
-/* NEW: Style for the row containing only social icons */
+/* Social icons container */
 .social-icons-row {
-    margin-top: 20px; /* Space from name/image above */
-    margin-bottom: 40px; /* Space before the "Connect", "Social", "Network" sections */
-    text-align: center; /* Center the flex container within this div */
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
-/* Specific styling for the Social Icons list itself */
+/* Social icon row */
 .link-items.social-icons {
-    display: flex; /* Arrange icons in a row */
-    justify-content: center; /* Center the icons horizontally */
-    flex-wrap: wrap; /* Allow icons to wrap to the next line on smaller screens */
-    gap: 25px; /* Space between icons */
-    list-style: none; /* Ensure no bullet points */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    list-style: none;
     padding: 0;
-    margin: 0; /* Remove default list margins */
+    margin: 0;
 }
 
 .link-items.social-icons li {
-    margin-bottom: 0; /* Remove vertical margin for flex items */
+    margin-bottom: 0;
 }
 
 .link-items.social-icons a {
-    color: #444; /* Changed default icon color to darker gray */
-    font-size: 20px; /* Size of the icons */
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
-    display: inline-block; /* Allows transforms */
+    color: #4682B4; /* muted blue */
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
 }
 
 .link-items.social-icons a:hover {
-    color: #ff6347; /* Tomato red hover color */
-    transform: translateY(-3px); /* Slight lift effect on hover */
+    color: #6A5ACD; /* hover in slate blue */
+    transform: translateY(-3px);
 }
 
-/* Specific icon colors on hover (optional, but highly recommended for branding) */
-.link-items.social-icons .fa-linkedin-in:hover { color: #0077B5; } /* LinkedIn blue */
-.link-items.social-icons .ai-researchgate:hover { color: #00CCBB; } /* ResearchGate green */
-.link-items.social-icons .fa-envelope:hover { color: #D44638; } /* Gmail/standard email red */
-.link-items.social-icons .fab.fa-x-twitter:hover { color: #000000; } /* X/Twitter black */
-.link-items.social-icons .ai-orcid:hover { color: #A6CE39; } /* ORCID green */
+/* Brand-specific icon hovers */
+.link-items.social-icons .fa-linkedin-in:hover { color: #0077B5; }
+.link-items.social-icons .ai-researchgate:hover { color: #00CCBB; }
+.link-items.social-icons .fa-envelope:hover { color: #D44638; }
+.link-items.social-icons .fab.fa-x-twitter:hover { color: #000000; }
+.link-items.social-icons .ai-orcid:hover { color: #A6CE39; }
 
-/* General styling for link lists (Connect, Network) */
+/* Links sections */
 .links-section {
     margin-top: 30px;
 }
@@ -71,7 +71,7 @@
 
 .links-section h3 {
     margin-bottom: 15px;
-    color: #555;
+    color: #4F4F4F; /* soft charcoal */
     text-align: center;
 }
 
@@ -88,15 +88,15 @@
 
 .link-items a {
     text-decoration: none;
-    color: #ff6347; /* Tomato red */
+    color: #6A5ACD; /* slate blue */
     transition: color 0.2s ease;
 }
 
 .link-items a:hover {
-    color: #cc503c; /* Slightly darker tomato red */
+    color: #483D8B; /* dark slate on hover */
 }
 
-/* For accessibility, hide text visually but keep for screen readers */
+/* Screen reader only (accessible) */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -107,5 +107,15 @@
     clip: rect(0,0,0,0);
     white-space: nowrap;
     border-width: 0;
+}
+
+.sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
 }
 
