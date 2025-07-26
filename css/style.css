@@ -1,6 +1,6 @@
 /* static/css/style.css */
 
-/* Profile Image */
+/* Your existing profile-image styles */
 .profile-image {
     display: block;
     margin: 0 auto 20px auto;
@@ -11,139 +11,100 @@
     border: 2px solid #eee;
 }
 
-/* Your Name */
+/* Styling for your name (h1.name) */
 .name {
-    color: #ff6347; /* Tomato red */
-    font-weight: bold;
-    font-size: 2rem;
-    text-align: center;
+    /* Your current styles for .name go here if any */
+    /* Example: font-size, color, etc. */
+    text-align: center; /* Adjust this to 'left', 'center', or 'right' */
+   /*margin-right: 5px; /* Optional: Add some padding/margin from the right edge of its container */
+    /* You might need to set a max-width if it's too wide and prevents text-align from working as expected */
+    /* max-width: 250px; */ /* Example: adjust as needed */
+    /* margin-left: auto; */ /* If using max-width, this helps center or align */
 }
 
-/* NAVIGATION */
-
-/* Nav container */
-nav {
-    background-color: #ff6347; /* Tomato red */
-    padding: 1rem;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Nav list */
-nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
-}
-
-/* Nav items */
-nav ul li {
-    margin: 0 1rem;
-}
-
-/* Nav links */
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-/* Nav link hover */
-nav ul li a:hover {
-    color: #ffe4b5; /* Light warm yellow on hover */
-}
-
-/* Social Icons Row */
+/* NEW: Style for the row containing only social icons */
 .social-icons-row {
-    margin-top: 20px;
-    margin-bottom: 40px;
-    text-align: center;
+    margin-top: 20px; /* Space from name/image above */
+    margin-bottom: 40px; /* Space before the "Connect", "Social", "Network" sections */
+    text-align: center; /* Center the flex container within this div */
 }
 
-/* Social Icons list */
+/* Specific styling for the Social Icons list itself */
+/* This block should now apply directly to the ul inside social-icons-row */
 .link-items.social-icons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    list-style: none;
+    display: flex; /* Arrange icons in a row */
+    justify-content: center; /* Center the icons horizontally */
+    flex-wrap: wrap; /* Allow icons to wrap to the next line on smaller screens */
+    gap: 25px; /* Space between icons */
+    list-style: none; /* Ensure no bullet points */
     padding: 0;
-    margin: 0;
+    margin: 0; /* Remove default list margins */
 }
 
-/* Social Icon items */
 .link-items.social-icons li {
-    margin-bottom: 0;
+    margin-bottom: 0; /* Remove vertical margin for flex items */
 }
 
-/* Social Icon links */
 .link-items.social-icons a {
-    color: #444; /* Darker grey */
-    font-size: 20px;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.2s ease;
-    display: inline-block;
+    color: #555; /* Default icon color */
+    font-size: 20px; /* Size of the icons */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+    display: inline-block; /* Allows transforms */
 }
 
-/* Social Icon hover */
 .link-items.social-icons a:hover {
-    color: #ff6347; /* Tomato red */
-    transform: translateY(-3px);
+    color: #007bff; /* General hover color */
+    transform: translateY(-3px); /* Slight lift effect on hover */
 }
 
-/* Brand specific icon hover colors */
+/* Specific icon colors on hover (optional, but highly recommended for branding) */
 .link-items.social-icons .fa-linkedin-in:hover { color: #0077B5; } /* LinkedIn blue */
 .link-items.social-icons .ai-researchgate:hover { color: #00CCBB; } /* ResearchGate green */
-.link-items.social-icons .fa-envelope:hover { color: #D44638; } /* Email red */
+.link-items.social-icons .fa-envelope:hover { color: #D44638; } /* Gmail/standard email red */
 .link-items.social-icons .fab.fa-x-twitter:hover { color: #000000; } /* X/Twitter black */
 .link-items.social-icons .ai-orcid:hover { color: #A6CE39; } /* ORCID green */
 
-/* Links Section */
+/* General styling for link lists (Connect, Network) */
+/* This part remains mostly the same, ensuring your column layout for text links */
 .links-section {
     margin-top: 30px;
+    /* text-align: center; */
 }
 
-/* Links blocks */
 .links-section .link-list-block {
     margin-bottom: 25px;
 }
 
-/* Links section headings */
 .links-section h3 {
     margin-bottom: 15px;
     color: #555;
     text-align: center;
 }
 
-/* General links list */
-.link-items {
+.link-items { /* This now applies to all ul.link-items, but social-icons overrides some */
     list-style: none;
     padding: 0;
     margin: 0;
     text-align: center;
 }
 
-/* Links list items */
 .link-items li {
     margin-bottom: 8px;
 }
 
-/* Links */
 .link-items a {
     text-decoration: none;
-    color: #ff6347; /* Tomato red */
+    color: #007bff;
     transition: color 0.2s ease;
 }
 
-/* Link hover */
 .link-items a:hover {
-    color: #cc503c; /* Slightly darker tomato red */
+    color: #0056b3;
 }
 
-/* Screen reader only text */
+
+/* For accessibility, hide text visually but keep for screen readers */
 .sr-only {
     position: absolute;
     width: 1px;
