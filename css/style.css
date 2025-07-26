@@ -121,7 +121,7 @@
 
 /* Optional gentle page background */
 body {
-  background-color: #F5F7FA; /* very light gray-blue */
-  color: #333;               /* dark gray text for readability */
+  background-color: #F5F7FA; !important
+  color: #333;               !important
 }
 
