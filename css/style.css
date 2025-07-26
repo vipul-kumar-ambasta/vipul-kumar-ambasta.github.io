@@ -119,3 +119,7 @@
     white-space: normal;
 }
 
+body {
+  background-color: lightpink !important;
+}
+
