@@ -184,29 +184,28 @@ html, body {
    Mobile Responsive
 ========================= */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
   .nav-menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    left: 15px;
+    position: fixed; /* better for menu overlay */
+    top: 0;
+    left: -260px; /* hidden off-screen to left */
+    width: 250px;
+    height: 100%;
     background-color: #00cccc;
     padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 0 8px 8px 0;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+    transition: left 0.3s ease;
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
   }
 
   .nav-menu.show {
-    display: flex;
+    left: 0; /* slide in */
   }
 
   .nav-menu li {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   .link-items.social-icons {
