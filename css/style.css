@@ -127,9 +127,11 @@ img {
 /* =========================
    Base Colors
 ========================= */
-html, body {
+html:not(.dark-mode),
+body:not(.dark-mode) {
   background-color: #edf5df !important;
 }
+
 
 /* =========================
    Navbar & Menu
@@ -216,7 +218,7 @@ html, body {
 
   .nav-menu li {
     margin-bottom: 10px;
-  }}
+  }
 
   .link-items.social-icons {
     flex-direction: column;
@@ -244,18 +246,21 @@ html, body {
 /* =========================
    Dark Mode
 ========================= */
+/* =========================
+   Dark Mode
+========================= */
 html.dark-mode,
 body.dark-mode {
   background-color: #121212 !important;
   color: #e0e0e0 !important;
 }
 
-html.dark-mode,
+html.dark-mode a,
 body.dark-mode a {
   color: #87cefa !important;
 }
 
-html.dark-mode,
+html.dark-mode .navbar,
 body.dark-mode .navbar {
   background-color: #1e1e1e !important;
 }
