@@ -9,16 +9,28 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
-  menuToggle.addEventListener('click', function () {
+  // Toggle menu on hamburger click
+  menuToggle.addEventListener('click', function (e) {
+    e.stopPropagation(); // Prevent click from bubbling
     mainMenu.classList.toggle('show');
   });
 
-  // Optional: Close menu when a link is clicked
+  // Close menu when a link is clicked
   const menuLinks = mainMenu.querySelectorAll('a');
   menuLinks.forEach(link => {
     link.addEventListener('click', function () {
       mainMenu.classList.remove('show');
     });
+  });
+
+  // Optional: Close menu if user clicks outside
+  document.addEventListener('click', function (event) {
+    const isClickInsideMenu = mainMenu.contains(event.target);
+    const isClickOnToggle = menuToggle.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickOnToggle) {
+      mainMenu.classList.remove('show');
+    }
   });
 });
 

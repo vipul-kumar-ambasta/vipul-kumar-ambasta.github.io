@@ -26,8 +26,9 @@
 }
 
 .link-items.social-icons {
-  display: flex;
-  justify-content: center;
+  display: flex !important;
+  justify-content: center !important;
+  flex-direction: row !important;
   flex-wrap: wrap;
   gap: 25px;
   list-style: none;
@@ -189,27 +190,33 @@ html, body {
   }
 
   .nav-menu {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 70px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  background-color: #00cccc;
-  padding: 1rem;
-  border-radius: 0; /* Optional: remove rounding if you want a flush look */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #00cccc;
+    padding: 1rem;
+    z-index: 1000;
+
+    /* Animation prep */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    opacity: 0;
+    transform: translateY(-10px);
   }
 
   .nav-menu.show {
-    display: flex;
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .nav-menu li {
     margin-bottom: 10px;
-  }
+  }}
 
   .link-items.social-icons {
     flex-direction: column;
