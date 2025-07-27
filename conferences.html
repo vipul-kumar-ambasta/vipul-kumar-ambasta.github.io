@@ -50,52 +50,41 @@
 
 <body class="body">
 
-   <button id="darkModeToggle" style="position: fixed; top: 1rem; right: 1rem; z-index: 999;">
-     Toggle Dark Mode
-   </button>
- 
-  <nav class="navbar" style="padding: 1rem; width: 100%; box-sizing: border-box;">
-    <ul style="display: flex; list-style: none; margin: 0; padding: 0; justify-content: center;">
+  
+  <nav class="navbar">
+    <div class="nav-container">
+
       
-        <li style="margin: 0 1rem;">
-          <a href="./" style="color: white; text-decoration: none; font-weight: bold;">
-            About Me
-          </a>
-        </li>
+      <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">
+        &#9776;
+      </button>
+
       
-        <li style="margin: 0 1rem;">
-          <a href="./my-journey.html" style="color: white; text-decoration: none; font-weight: bold;">
-            My Journey
-          </a>
-        </li>
+      <ul class="nav-menu" id="mainMenu">
+        
+          <li><a href="./">About Me</a></li>
+        
+          <li><a href="./my-journey.html">My Journey</a></li>
+        
+          <li><a href="./projects.html">Projects</a></li>
+        
+          <li><a href="./publications.html">Publications</a></li>
+        
+          <li><a href="./conferences.html">Conferences</a></li>
+        
+          <li><a href="./gallery.html">Gallery</a></li>
+        
+      </ul>
+
       
-        <li style="margin: 0 1rem;">
-          <a href="./projects.html" style="color: white; text-decoration: none; font-weight: bold;">
-            Projects
-          </a>
-        </li>
-      
-        <li style="margin: 0 1rem;">
-          <a href="./publications.html" style="color: white; text-decoration: none; font-weight: bold;">
-            Publications
-          </a>
-        </li>
-      
-        <li style="margin: 0 1rem;">
-          <a href="./conferences.html" style="color: white; text-decoration: none; font-weight: bold;">
-            Conferences
-          </a>
-        </li>
-      
-        <li style="margin: 0 1rem;">
-          <a href="./gallery.html" style="color: white; text-decoration: none; font-weight: bold;">
-            Gallery
-          </a>
-        </li>
-      
-    </ul>
+      <button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">
+        🌓
+      </button>
+
+    </div>
   </nav>
 
+  
   
 <article style="max-width: 700px; margin: 2rem auto; padding: 1rem;">
   <h1>Conferences Attended</h1>
@@ -148,11 +137,12 @@
 </article>
 
 
-
   
   <script src="./js/dark-mode-toggle.js"></script>
 
-</body>
+  
+  <script src="./js/mobile-menu-toggle.js"></script>
 
+</body>
 </html>
 
