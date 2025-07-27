@@ -14,10 +14,11 @@
 
 .name {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-family: 'Lato', sans-serif;
   text-transform: none;
-  margin-top: 2rem;
+  margin-top: 1rem;
+  margin-bottom:1.5rem;
   font-weight: bold;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
@@ -144,11 +145,11 @@ body:not(.dark-mode) a {
 
 html:not(.dark-mode) .navbar,
 body:not(.dark-mode) .navbar {
-  background-color: #7033b5;
+  background-color: #048bde;
 }
 
 html:not(.dark-mode) .name {
-  color: #7033b5;
+  color: #0568a6;
 }
 
 /* =========================
@@ -172,6 +173,27 @@ body.dark-mode .navbar {
 
 html.dark-mode .name {
   color: #87cefa !important;
+}
+
+
+/* =========================
+   Profile picture for light and dark mode
+========================= */
+
+/* Hide both images by default */
+.light-mode-only,
+.dark-mode-only {
+  display: none;
+}
+
+/* Show light image in light mode */
+html:not(.dark-mode) .light-mode-only {
+  display: block;
+}
+
+/* Show dark image in dark mode */
+html.dark-mode .dark-mode-only {
+  display: block;
 }
 
 /* =========================
@@ -276,5 +298,31 @@ html.dark-mode .name {
   .link-items a {
     font-size: 1rem;
   }
+}
+
+/* Smooth transitions for color and images */
+html, body, img, .name, .navbar, a {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Optional: smooth image fade */
+.light-mode-only,
+.dark-mode-only {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+html:not(.dark-mode) .light-mode-only {
+  opacity: 1;
+  position: relative;
+  pointer-events: auto;
+}
+
+html.dark-mode .dark-mode-only {
+  opacity: 1;
+  position: relative;
+  pointer-events: auto;
 }
 
