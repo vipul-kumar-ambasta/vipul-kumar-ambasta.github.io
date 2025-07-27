@@ -130,8 +130,13 @@ img {
 html:not(.dark-mode),
 body:not(.dark-mode) {
   background-color: #edf5df !important;
+  color: #333333; /* added global text color for non-dark mode */
 }
 
+html:not(.dark-mode) a,
+body:not(.dark-mode) a {
+  color: #ff6347; /* added global link color for non-dark mode */
+}
 
 /* =========================
    Navbar & Menu
@@ -243,9 +248,6 @@ body:not(.dark-mode) {
   }
 }
 
-/* =========================
-   Dark Mode
-========================= */
 /* =========================
    Dark Mode
 ========================= */
