@@ -11,10 +11,20 @@
   border: 2px solid #eee;
 }
 
+
 .name {
-  color: #ff6347;
   text-align: center;
+  font-size: 2rem;
+  font-family: 'Lato', sans-serif;
+  text-transform: none;
+  margin-top: 2rem;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  display: inline-block;
 }
+
+
 
 /* =========================
    Social Icons
@@ -72,7 +82,6 @@
 
 .links-section h3 {
   margin-bottom: 15px;
-  color: #555;
   text-align: center;
 }
 
@@ -89,12 +98,7 @@
 
 .link-items a {
   text-decoration: none;
-  color: #ff6347;
   transition: color 0.2s ease;
-}
-
-.link-items a:hover {
-  color: #cc503c;
 }
 
 /* =========================
@@ -129,19 +133,45 @@ img {
 ========================= */
 html:not(.dark-mode),
 body:not(.dark-mode) {
-  background-color: #edf5df !important;
-  color: #333333; /* example text color */
+  background-color: #c9c9b9 !important;
+  color: #333333;
 }
 
 html:not(.dark-mode) a,
 body:not(.dark-mode) a {
-  color: #ff6347; /* example link color */
+  color: #ff6347;
 }
 
-/* Navbar background for light mode */
 html:not(.dark-mode) .navbar,
 body:not(.dark-mode) .navbar {
-  background-color: #00cccc;
+  background-color: #7033b5;
+}
+
+html:not(.dark-mode) .name {
+  color: #7033b5;
+}
+
+/* =========================
+   Base Colors for Dark Mode
+========================= */
+html.dark-mode,
+body.dark-mode {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+}
+
+html.dark-mode a,
+body.dark-mode a {
+  color: #87cefa !important;
+}
+
+html.dark-mode .navbar,
+body.dark-mode .navbar {
+  background-color: #1e1e1e !important;
+}
+
+html.dark-mode .name {
+  color: #87cefa !important;
 }
 
 /* =========================
@@ -159,7 +189,6 @@ body:not(.dark-mode) .navbar {
   align-items: center;
 }
 
-/* Navigation menu items */
 .nav-menu {
   display: flex;
   list-style: none;
@@ -174,7 +203,6 @@ body:not(.dark-mode) .navbar {
   font-weight: bold;
 }
 
-/* Hamburger menu toggle */
 .menu-toggle {
   font-size: 28px;
   background: none;
@@ -184,7 +212,6 @@ body:not(.dark-mode) .navbar {
   cursor: pointer;
 }
 
-/* Dark mode toggle */
 .dark-toggle {
   font-size: 20px;
   background: none;
@@ -211,8 +238,6 @@ body:not(.dark-mode) .navbar {
     background-color: #00cccc;
     padding: 1rem;
     z-index: 1000;
-
-    /* Animation prep */
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-in-out;
@@ -251,24 +276,5 @@ body:not(.dark-mode) .navbar {
   .link-items a {
     font-size: 1rem;
   }
-}
-
-/* =========================
-   Dark Mode
-========================= */
-html.dark-mode,
-body.dark-mode {
-  background-color: #121212 !important;
-  color: #e0e0e0 !important;
-}
-
-html.dark-mode a,
-body.dark-mode a {
-  color: #87cefa !important;
-}
-
-html.dark-mode .navbar,
-body.dark-mode .navbar {
-  background-color: #1e1e1e !important;
 }
 
