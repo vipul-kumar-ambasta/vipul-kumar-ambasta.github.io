@@ -125,17 +125,23 @@ img {
 }
 
 /* =========================
-   Base Colors
+   Base Colors for Light Mode
 ========================= */
 html:not(.dark-mode),
 body:not(.dark-mode) {
   background-color: #edf5df !important;
-  color: #333333; /* added global text color for non-dark mode */
+  color: #333333; /* example text color */
 }
 
 html:not(.dark-mode) a,
 body:not(.dark-mode) a {
-  color: #ff6347; /* added global link color for non-dark mode */
+  color: #ff6347; /* example link color */
+}
+
+/* Navbar background for light mode */
+html:not(.dark-mode) .navbar,
+body:not(.dark-mode) .navbar {
+  background-color: #00cccc;
 }
 
 /* =========================
@@ -145,7 +151,6 @@ body:not(.dark-mode) a {
   padding: 1rem;
   width: 100%;
   box-sizing: border-box;
-  background-color: #00cccc;
 }
 
 .nav-container {
