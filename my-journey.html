@@ -54,36 +54,34 @@
   
   <nav class="navbar">
     <div class="nav-container">
-
       
       <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">
         &#9776;
       </button>
 
       
-      <ul class="nav-menu" id="mainMenu">
-        
-          <li><a href="./">About Me</a></li>
-        
-          <li><a href="./my-journey.html">My Journey</a></li>
-        
-          <li><a href="./projects.html">Projects</a></li>
-        
-          <li><a href="./publications.html">Publications</a></li>
-        
-          <li><a href="./conferences.html">Conferences</a></li>
-        
-          <li><a href="./gallery.html">Gallery</a></li>
-        
-      </ul>
-
-      
       <button id="darkModeToggle" class="dark-toggle" aria-label="Toggle dark mode">
         🌓
       </button>
-
     </div>
   </nav>
+
+  
+  <ul class="nav-menu" id="mainMenu">
+    
+      <li><a href="./">About Me</a></li>
+    
+      <li><a href="./my-journey.html">My Journey</a></li>
+    
+      <li><a href="./projects.html">Projects</a></li>
+    
+      <li><a href="./publications.html">Publications</a></li>
+    
+      <li><a href="./conferences.html">Conferences</a></li>
+    
+      <li><a href="./gallery.html">Gallery</a></li>
+    
+  </ul>
 
   
   
@@ -93,28 +91,38 @@
     <style>
 .timeline {
   margin: 2rem 0;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .timeline-item {
   display: flex;
   align-items: flex-start;
   margin-bottom: 3rem;
+  flex-wrap: wrap;
 }
 
 .timeline-year {
   width: 100px;
+  min-width: 90px;
   text-align: right;
   padding-right: 20px;
   font-weight: bold;
-  color: #555;
+  color: #ffffff;
   flex-shrink: 0;
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
 .timeline-line {
   width: 4px;
   background-color: #ccc;
   margin-right: 20px;
-  min-height: 100px; /* makes sure the line has height */
+  min-height: 100px;
+  flex-shrink: 0;
 }
 
 .timeline-content {
@@ -122,6 +130,8 @@
   gap: 1rem;
   align-items: flex-start;
   flex: 1;
+  min-width: 0;
+  flex-wrap: wrap;
 }
 
 .timeline-content img {
@@ -129,59 +139,94 @@
   height: 80px;
   object-fit: contain;
   border-radius: 8px;
+  flex-shrink: 0;
 }
 
 .timeline-content .text {
-  flex: 1;
+  flex: 1 1 200px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #e0f7f7;
+  font-weight: 600;
+  min-width: 0;
+}
+
+@media (max-width: 600px) {
+  .timeline-item {
+    flex-direction: column;
+  }
+  
+  .timeline-year {
+    width: auto;
+    text-align: left;
+    padding-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-line {
+    margin: 0 0 1rem 0;
+    width: 100%;
+    height: 4px;
+  }
+
+  .timeline-content {
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .timeline-content img {
+    width: 80px;
+    height: 60px;
+  }
 }
 </style>
 <div class="timeline">
-<div class="timeline-item">
-  <div class="timeline-year">2019–23</div>
-  <div class="timeline-line"></div>
-  <div class="timeline-content">
-    <img src="./images/IIPE_logo.png" alt="Bachelor's University" />
-    <div class="text">
-      <strong>Bachelor's at IIPE</strong><br />
-      After securing 14687 AIR, admitted to Chemical Engineering at IIPE.<br />
-      Graduated with CGPA: 9.12/10 (German equivalent: 1.5)
+  <div class="timeline-item">
+    <div class="timeline-year">2019–23</div>
+    <div class="timeline-line"></div>
+    <div class="timeline-content">
+      <img src="./images/IIPE_logo.png" alt="Bachelor's University" />
+      <div class="text">
+        <strong>Bachelor of Technology at IIPE</strong><br />
+        After securing 14687 AIR, admitted to Chemical Engineering at IIPE.<br />
+        Graduated with CGPA: 9.12/10 (German equivalent: 1.5)
+      </div>
     </div>
   </div>
-</div>
-<div class="timeline-item">
-  <div class="timeline-year">2022</div>
-  <div class="timeline-line"></div>
-  <div class="timeline-content">
-    <img src="./images/IIPE_SIP.png" alt="Internship IIPE" />
-    <div class="text">
-      <strong>Internship at IIPE</strong><br />
-      8-week summer research under Dr. Somnath Ghosh & Dr. Sourav Laha.<br />
-      Used Gaussian 16 to predict hydrogenation mechanism via FLP.
+  <div class="timeline-item">
+    <div class="timeline-year">2022</div>
+    <div class="timeline-line"></div>
+    <div class="timeline-content">
+      <img src="./images/IIPE_logo.png" alt="Internship IIPE" />
+      <div class="text">
+        <strong>Internship at IIPE</strong><br />
+        8-week summer research under Dr. Somnath Ghosh & Dr. Sourav Laha.<br />
+        Used Gaussian 16 to predict hydrogenation mechanism via FLP.
+      </div>
     </div>
   </div>
-</div>
-<div class="timeline-item">
-  <div class="timeline-year">2023–26</div>
-  <div class="timeline-line"></div>
-  <div class="timeline-content">
-    <img src="./images/FAU_logo.png" alt="FAU University" />
-    <div class="text">
-      <strong>Master’s at FAU</strong><br />
-      Started ELite program in Advanced Materials and Processes (MAP) at Friedrich Alexander Universität Erlangen-Nürnberg.
+  <div class="timeline-item">
+    <div class="timeline-year">2023–26</div>
+    <div class="timeline-line"></div>
+    <div class="timeline-content">
+      <img src="./images/FAU_logo_2.png" alt="FAU University" />
+      <div class="text">
+        <strong>Masters in Science at FAU</strong><br />
+        Started Elite program in Advanced Materials and Processes (MAP) at Friedrich Alexander Universität Erlangen-Nürnberg (FAU).
+      </div>
     </div>
   </div>
-</div>
-<div class="timeline-item">
-  <div class="timeline-year">2025</div>
-  <div class="timeline-line"></div>
-  <div class="timeline-content">
-    <img src="./images/BASF_logo.png" alt="BASF Internship" />
-    <div class="text">
-      <strong>Internship at BASF</strong><br />
-      Interned in Quantum Chemistry – Inorganic Team at BASF, Ludwigshafen.
+  <div class="timeline-item">
+    <div class="timeline-year">2025</div>
+    <div class="timeline-line"></div>
+    <div class="timeline-content">
+      <img src="./images/BASF_logo.png" alt="BASF Internship" />
+      <div class="text">
+        <strong>Internship at BASF</strong><br />
+        Interned in Quantum Chemistry – Inorganic Team at BASF, Ludwigshafen.
+      </div>
     </div>
   </div>
-</div>
 </div>
 
   </div>
