@@ -90,45 +90,56 @@
   <div>
     <style>
 .pub-list {
-  max-width: 800px;
+  max-width: 700px; /* slightly narrower so text feels zoomed */
   margin: 2rem auto;
   padding: 1rem;
-  line-height: 1.6;
+  line-height: 1.8; /* more spacious reading */
+  font-size: 1.15rem; /* larger text */
 }
 
 .pub-item {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .pub-title {
   font-weight: bold;
   color: #00cccc;
+  font-size: 1.2rem; /* title slightly larger */
 }
 
 .pub-link {
   text-decoration: none;
-  color: #555;
+  color: #888;
 }
 
 .pub-link:hover {
   text-decoration: underline;
 }
+
+/* Bold Vipul's name wherever it appears */
+.pub-item div {
+  white-space: pre-line;
+}
+
+.pub-item div:contains("Vipul Kumar Ambasta") {
+  font-weight: bold;
+}
 </style>
 <div class="pub-list">
   <div class="pub-item">
-    <div class="pub-title">An Efficient Method for XYZ</div>
-    <div>Vipul Kumar Ambasta, Jane Doe — *IEEE Conf. on AI, 2023*</div>
-    <a class="pub-link" href="https://doi.org/10.1234/xyz2023" target="_blank">View Publication</a>
+    <div class="pub-title">Theoretical electronic structure calculation of partial Mn doping in CdY (Y=S, Se, Te) system.</div>
+    <div>Manuscript under preparation</div>
+    <a class="pub-link" href="" target="_blank"></a>
   </div>
   <div class="pub-item">
-    <div class="pub-title">Machine Learning for ABC Optimization</div>
-    <div>Vipul K. Ambasta — *ArXiv preprint, 2022*</div>
-    <a class="pub-link" href="https://arxiv.org/abs/2201.12345" target="_blank">Read on arXiv</a>
+    <div class="pub-title">Solution ALD of (CH3NH3)(PbI3) Perovskite Thin Films Yields Functional Quality and Stability Superior to Classical Processing</div>
+    <div>Vanessa M. Koch, Andreas S. Deckert, Pascal Büttner, Evanie Franz, Fei Ding, Michael A. Anderson, Jiyun Zhang, Christian Kupfer, Elena Mack, <strong>Vipul Kumar Ambasta</strong>, Patrick Duchstein, Katharina E. Dehm, Xinyi Zeng, Stevie Furxhiu, Achim Zahl, Johannes Frisch, Felix Hoga, Tobias Stubhan, Regan G. Wilks, Olaf Brummel, Ryan W. Crisp, Dirk Zahn, Carolin Müller, Dirk M. Guldi, Marcus Bär, Dorothea Wisser, Jörg Libuda, Christoph J. Brabec, Julien Bachmann — *Under review - Angewandte Chemie*</div>
+    <a class="pub-link" href="" target="_blank">Under Review</a>
   </div>
   <div class="pub-item">
-    <div class="pub-title">A Survey on Something Cool</div>
-    <div>Ambasta et al. — *Elsevier Journal of Computer Vision, 2021*</div>
-    <a class="pub-link" href="https://doi.org/10.5678/elsevier2021" target="_blank">Journal Link</a>
+    <div class="pub-title">Exploring the electronic properties of doped zirconia for enhanced optoelectronic applications: A quantum chemical approach.</div>
+    <div><strong>Vipul Kumar Ambasta</strong>, Somnath Ghosh, Anik Sen — *2025, Journal of Physics and Chemistry of Solids 197, 112412*</div>
+    <a class="pub-link" href="https://doi.org/10.1016/j.jpcs.2024.112412" target="_blank">View Publication</a>
   </div>
 </div>
 

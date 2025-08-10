@@ -90,45 +90,43 @@
   <div>
     <style>
 .conf-list {
-  max-width: 800px;
+  max-width: 650px; /* narrower for more zoom effect */
   margin: 2rem auto;
   padding: 1rem;
-  line-height: 1.6;
+  line-height: 1.9;
+  font-size: 1.2rem; /* bigger text */
+  transform: scale(1.15); /* actual zoom */
+  transform-origin: top center;
 }
 
 .conf-item {
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #444;
 }
 
 .conf-title {
   font-weight: bold;
   color: #00cccc;
   margin-bottom: 0.3rem;
+  font-size: 1.3rem;
 }
 
 .conf-meta {
-  color: #555;
-  font-size: 0.95rem;
+  color: #ccc;
+  font-size: 1.1rem;
+}
+
+.poster-label {
+  font-weight: bold;
+  color: #ffcc00;
 }
 </style>
 <div class="conf-list">
   <div class="conf-item">
-    <div class="conf-title">IEEE Conference on Artificial Intelligence</div>
-    <div class="conf-meta">New York, USA — July 2023</div>
-  </div>
-  <div class="conf-item">
-    <div class="conf-title">NeurIPS (Poster Presentation)</div>
-    <div class="conf-meta">Virtual — December 2022</div>
-  </div>
-  <div class="conf-item">
-    <div class="conf-title">ACM SIGKDD Conference</div>
-    <div class="conf-meta">Singapore — August 2022</div>
-  </div>
-  <div class="conf-item">
-    <div class="conf-title">Google AI Research Day</div>
-    <div class="conf-meta">Bangalore, India — March 2021</div>
+    <div class="conf-title">Molecular Modeling Workshop</div>
+    <div class="conf-meta"><span class="poster-label">Poster:</span> <strong>Vipul Kumar Ambasta</strong>, Carolin Müller — Machine learning in predicting electronic absorption properties of molecules and materials</div>
+    <div class="conf-meta">Erlangen, Germany — March 2025</div>
   </div>
 </div>
 
