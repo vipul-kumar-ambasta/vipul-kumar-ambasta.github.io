@@ -1,26 +1,27 @@
 /* =========================
    Layout: Profile + Text
 ========================= */
-/* Make sure the page fills viewport */
 html, body {
   height: 100%;
   margin: 0;
+  font-family: 'Lato', sans-serif;
+  color: #e0f7f7;
+
+  /* Gradient background */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background-attachment: fixed;
 }
 
-/* Center the profile container vertically and horizontally */
 .profile-container {
   display: flex;
-  align-items: center;   /* vertical centering of image + text inside profile container */
+  align-items: center;
   justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
   padding: 2rem;
-
-  /* Center the whole container vertically on page */
-  min-height: 80vh;      /* or 100vh if you want full screen */
+  min-height: 80vh;
   margin: 0 auto;
 }
-
 
 .profile-card {
   display: flex;
@@ -100,35 +101,32 @@ html, body {
    Bio & Credit
 ========================= */
 .bio-text {
-  color: #000000 !important;             /* White text */
-  font-weight: 700;            /* Bold */
-  font-family: 'Georgia', serif; /* Elegant serif font */
-  font-size: 1.1rem;           /* Slightly bigger for readability */
-  line-height: 1.8;            /* More airy line spacing */
+  color: #000000 !important;
+  font-weight: 700;
+  font-family: 'Georgia', serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
   margin-bottom: 1rem;
 }
 
-
 .credit {
   font-size: 0.9rem;
-  color: #777;
+  color: #ddd;
 }
 
-/* center the credit below both sections */
 .credit-center {
   text-align: center;
   margin-top: 2rem;
 }
 
 .bio p {
-  text-align: justify;       /* Justify the paragraph */
-  line-height: 1.6;          /* Optional: better line spacing */
-  margin-bottom: 1em;        /* Space between paragraphs if you add more */
+  text-align: justify;
+  line-height: 1.6;
+  margin-bottom: 1em;
 }
 
-
 /* =========================
-   Link Lists (Connect, Network)
+   Link Lists
 ========================= */
 .links-section {
   margin-top: 30px;
@@ -166,97 +164,23 @@ html, body {
 }
 
 /* =========================
-   Light / Dark Image Toggles
-========================= */
-.light-mode-only,
-.dark-mode-only {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  pointer-events: none;
-}
-
-html:not(.dark-mode) .light-mode-only {
-  opacity: 1;
-  position: relative;
-  pointer-events: auto;
-}
-
-html.dark-mode .dark-mode-only {
-  opacity: 1;
-  position: relative;
-  pointer-events: auto;
-}
-
-/* =========================
-   Base Color Themes
-========================= */
-/* Light Mode */
-html:not(.dark-mode),
-body:not(.dark-mode) {
-  background-color: #003b36;
-  color: #e0f7f7;
-  font-family: 'Lato', sans-serif;
-}
-
-html:not(.dark-mode) a,
-body:not(.dark-mode) a {
-  color: #40e0d0;
-  transition: color 0.3s ease;
-}
-
-html:not(.dark-mode) a:hover,
-body:not(.dark-mode) a:hover {
-  color: #a0fff9;
-}
-
-html:not(.dark-mode) .navbar {
-  background-color: transparent;  /* removed colored background */
-  box-shadow: none;               /* removed shadow */
-}
-
-/* Dark Mode */
-html.dark-mode,
-body.dark-mode {
-  background-color: #121212 !important;
-  color: #e0e0e0 !important;
-}
-
-html.dark-mode a,
-body.dark-mode a {
-  color: #87cefa !important;
-}
-
-html.dark-mode .navbar {
-  background-color: transparent !important; /* keep transparent even in dark mode */
-  box-shadow: none !important;
-}
-
-html.dark-mode .name {
-  color: #87cefa !important;
-}
-
-/* =========================
    Navbar & Utility
 ========================= */
 .navbar {
-  padding: 0.5rem 1rem;          /* reduced padding to reduce vertical space */
+  padding: 0.5rem 1rem;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1100;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between; /* space between hamburger & dark mode toggle */
+  justify-content: flex-start;
   align-items: center;
-  background-color: transparent;  /* keep transparent */
+  background-color: transparent;
   box-shadow: none;
 }
 
-.menu-toggle,
-.dark-toggle {
+.menu-toggle {
   background: none;
   border: none;
   color: #40e0d0;
@@ -265,26 +189,13 @@ html.dark-mode .name {
   transition: color 0.3s ease;
 }
 
-.menu-toggle:hover,
-.dark-toggle:hover {
+.menu-toggle:hover {
   color: #a0fff9;
   transform: translateY(-3px);
 }
 
-/* Position hamburger on left */
-.menu-toggle {
-  position: relative;
-  z-index: 1200;
-}
-
-/* Position dark mode toggle on right */
-.dark-toggle {
-  position: relative;
-  z-index: 1200;
-}
-
 /* =========================
-   Navigation Menu (slide from left)
+   Navigation Menu
 ========================= */
 .nav-menu {
   position: fixed;
@@ -292,7 +203,7 @@ html.dark-mode .name {
   left: -300px;
   width: 300px;
   height: 100%;
-  background-color: #002824;
+  background-color: rgba(0, 40, 36, 0.95);
   border-right: 2px solid #40e0d0;
   padding: 60px 20px;
   display: flex;
@@ -322,7 +233,7 @@ html.dark-mode .name {
 }
 
 /* =========================
-   Responsive Adjustments
+   Responsive
 ========================= */
 @media (max-width: 768px) {
   .profile-container {
@@ -394,9 +305,8 @@ button:hover {
 
 .nav-container {
   display: flex;
-  justify-content: space-between; /* hamburger left, dark mode toggle right */
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
 }
-
 
