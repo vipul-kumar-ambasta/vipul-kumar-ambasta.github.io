@@ -100,8 +100,13 @@ html, body {
 /* =========================
    Bio & Credit
 ========================= */
+
+/* =========================
+   Bio Text Color
+========================= */
+
 .bio-text {
-  color: #000000 !important;
+  color: white !important;
   font-weight: 700;
   font-family: 'Georgia', serif;
   font-size: 1.1rem;
@@ -123,6 +128,7 @@ html, body {
   text-align: justify;
   line-height: 1.6;
   margin-bottom: 1em;
+   color: inherit; /* ensures paragraphs use the .bio color */
 }
 
 /* =========================
@@ -203,7 +209,7 @@ html, body {
   left: -300px;
   width: 300px;
   height: 100%;
-  background-color: rgba(0, 40, 36, 0.95);
+  background-color: rgba(32, 58, 67, 0.95); /* semi-transparent teal */
   border-right: 2px solid #40e0d0;
   padding: 60px 20px;
   display: flex;
