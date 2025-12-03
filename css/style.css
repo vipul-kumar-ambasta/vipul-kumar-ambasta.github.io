@@ -96,6 +96,8 @@ html, body {
 .link-items.social-icons .fa-envelope:hover    { color: #D44638; }
 .link-items.social-icons .fab.fa-x-twitter:hover  { color: #000000; }
 .link-items.social-icons .ai-orcid:hover      { color: #A6CE39; }
+.link-items.social-icons .ai-google-scholar:hover { color: #4285F4; }
+
 
 /* =========================
    Bio & Credit
