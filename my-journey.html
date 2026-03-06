@@ -2,235 +2,299 @@
 <html lang="en-us">
 
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
   <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
+  <title>My Journey - Vipul Kumar Ambasta</title>
+  <meta name="author" content="Jenny Jones" />
+  <meta name="description" content="Split is a centrally-divided layout for a professional online presence with a big image or video left with alongside content." />
+  <meta name="robots" content="index, follow" />
+  <meta name="referrer" content="always" />
 
-<title>My Journey - Vipul Kumar Ambasta</title>
-<meta name="author" content="Jenny Jones" />
-<meta name="description" content="Split is a centrally-divided layout for a professional online presence with a big image or video left with alongside content." />
-<meta name="robots" content="index, follow" />
-<meta name="referrer" content="always" />
+  <meta property="og:title" content="My Journey - Vipul Kumar Ambasta" />
+  <meta property="og:description" content="Split is a centrally-divided layout for a professional online presence with a big image or video left with alongside content." />
+  <meta property="og:url" content="https://vipul-kumar-ambasta.github.io/" />
+  <meta property="og:image" content="https://vipul-kumar-ambasta.github.io/images/social.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@onepagelove" />
 
-
-<meta property="og:title" content="My Journey - Vipul Kumar Ambasta" />
-<meta property="og:description" content="Split is a centrally-divided layout for a professional online presence with a big image or video left with alongside content." />
-<meta property="og:url" content="https://vipul-kumar-ambasta.github.io/" />
-
-<meta property="og:image" content="https://vipul-kumar-ambasta.github.io/images/social.jpg" />
-<meta name="twitter:card" content="summary_large_image" />
-
-<meta name="twitter:site" content="@onepagelove" />
-
-
-<link rel="icon" href="https://vipul-kumar-ambasta.github.io/favicon.ico" />
-
-
-
-  
-  
+  <link rel="icon" href="https://vipul-kumar-ambasta.github.io/favicon.ico" />
   <link rel="stylesheet" href="./css/split.min.1f28c3e02af279f939eab15e2fa7c330455a8b0559e563e767845492b94eb3c1.css" integrity="sha256-HyjD4Cryefk56rFeL6fDMEVaiwVZ5WPnZ4RUkrlOs8E=" crossorigin="anonymous" media="screen" />
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<link rel="stylesheet" href="https://vipul-kumar-ambasta.github.io/css/academicons.min.css">
-
-
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://vipul-kumar-ambasta.github.io/css/academicons.min.css">
   <link rel="stylesheet" href="https://vipul-kumar-ambasta.github.io/css/style.css" type="text/css" media="screen" />
 
+  <style>
+    /* ── Timeline layout ── */
+    .timeline {
+      margin: 2rem auto;
+      max-width: 700px;
+      padding: 0 1rem;
+      box-sizing: border-box;
+      position: relative;
+    }
 
+    /* Animated vertical line running the full height */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: calc(100px + 1rem + 2px); /* aligns with the .timeline-line column */
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, #ccc, rgba(204,204,204,0.15));
+      transform-origin: top;
+      transform: scaleY(0);
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .timeline.line-drawn::before {
+      transform: scaleY(1);
+    }
 
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      /* Scroll-reveal: starts hidden and offset */
+      opacity: 0;
+      transform: translateX(-28px);
+      transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .timeline-item.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
 
+    .timeline-year {
+      width: 100px;
+      min-width: 90px;
+      text-align: right;
+      padding-right: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      flex-shrink: 0;
+      font-size: 1rem;
+      line-height: 1.2;
+      font-family: 'Lato', sans-serif;
+    }
 
+    /* The vertical divider per item — hidden now that we use the ::before line */
+    .timeline-line {
+      width: 3px;
+      background-color: transparent; /* line drawn by ::before instead */
+      margin-right: 20px;
+      min-height: 100px;
+      flex-shrink: 0;
+      position: relative;
+    }
 
+    /* Dot on the line */
+    .timeline-line::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ccc;
+      border: 2px solid #0b1a28;
+      z-index: 1;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    .timeline-item.visible .timeline-line::before {
+      animation: dotPulse 2s ease-out infinite 0.5s;
+    }
 
+    .timeline-content {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      flex: 1;
+      min-width: 0;
+      flex-wrap: wrap;
+      /* Card hover effect */
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16,1,0.3,1), background 0.3s ease;
+    }
+    .timeline-content:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.1);
+      transform: translateX(6px);
+    }
+
+    .timeline-content img {
+      width: 90px;
+      height: 72px;
+      object-fit: contain;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .timeline-content .text {
+      flex: 1 1 200px;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #e0f7f7;
+      font-weight: 400;
+      min-width: 0;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .timeline-content .text strong {
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    @keyframes dotPulse {
+      0%   { box-shadow: 0 0 0 0 rgba(204,204,204,0.5); }
+      70%  { box-shadow: 0 0 0 8px rgba(204,204,204,0); }
+      100% { box-shadow: 0 0 0 0 rgba(204,204,204,0); }
+    }
+
+    /* Page title */
+    article h1 {
+      font-family: 'Lato', sans-serif;
+      font-weight: 900;
+      font-size: 2.4rem;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.6s ease forwards 0.1s;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .timeline::before { display: none; }
+      .timeline-item { flex-direction: column; }
+      .timeline-year {
+        width: auto;
+        text-align: left;
+        padding-right: 0;
+        margin-bottom: 0.5rem;
+      }
+      .timeline-line {
+        margin: 0 0 1rem 0;
+        width: 100%;
+        height: 3px;
+      }
+      .timeline-line::before { display: none; }
+      .timeline-content { flex-direction: row; gap: 10px; padding: 10px; }
+      .timeline-content img { width: 80px; height: 60px; }
+    }
+  </style>
 </head>
 
 <body class="body">
 
-  
   <nav class="navbar">
     <div class="nav-container">
-      
-      <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">
-        &#9776;
-      </button>
+      <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
     </div>
   </nav>
 
-  
   <ul class="nav-menu" id="mainMenu">
-    
-      <li><a href="./">About Me</a></li>
-    
-      <li><a href="./my-journey.html">My Journey</a></li>
-    
-      <li><a href="./projects.html">Projects</a></li>
-    
-      <li><a href="./publications.html">Publications</a></li>
-    
-      <li><a href="./conferences.html">Conferences</a></li>
-    
-      <li><a href="./gallery.html">Gallery</a></li>
-    
+    <li><a href="./">About Me</a></li>
+    <li><a href="./my-journey.html">My Journey</a></li>
+    <li><a href="./projects.html">Projects</a></li>
+    <li><a href="./publications.html">Publications</a></li>
+    <li><a href="./conferences.html">Conferences</a></li>
+    <li><a href="./gallery.html">Gallery</a></li>
   </ul>
 
-  
-  
-<article style="max-width: 700px; margin: 2rem auto; padding: 1rem;">
-  <h1>My Journey</h1>
-  <div>
-    <style>
-.timeline {
-  margin: 2rem 0;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1rem;
-  box-sizing: border-box;
-}
+  <article style="max-width: 700px; margin: 2rem auto; padding: 1rem;">
+    <h1>My Journey</h1>
+    <div>
+      <div class="timeline" id="timeline">
 
-.timeline-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-}
+        <div class="timeline-item">
+          <div class="timeline-year">2019–23</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <img src="./images/IIPE_logo.png" alt="Bachelor's University" />
+            <div class="text">
+              <strong>Bachelor of Technology at IIPE</strong>
+              After securing 14687 AIR, admitted to Chemical Engineering at IIPE.<br />
+              Graduated with CGPA: 9.12/10 (German equivalent: 1.5)
+            </div>
+          </div>
+        </div>
 
-.timeline-year {
-  width: 100px;
-  min-width: 90px;
-  text-align: right;
-  padding-right: 20px;
-  font-weight: bold;
-  color: #ffffff;
-  flex-shrink: 0;
-  font-size: 1rem;
-  line-height: 1.2;
-}
+        <div class="timeline-item">
+          <div class="timeline-year">2022</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <img src="./images/IIPE_logo.png" alt="Internship IIPE" />
+            <div class="text">
+              <strong>Internship at IIPE</strong>
+              8-week summer research under Dr. Somnath Ghosh & Dr. Sourav Laha.<br />
+              Used Gaussian 16 to predict hydrogenation mechanism via FLP.
+            </div>
+          </div>
+        </div>
 
-.timeline-line {
-  width: 4px;
-  background-color: #ccc;
-  margin-right: 20px;
-  min-height: 100px;
-  flex-shrink: 0;
-}
+        <div class="timeline-item">
+          <div class="timeline-year">2023–26</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <img src="./images/FAU_logo_2.png" alt="FAU University" />
+            <div class="text">
+              <strong>Masters in Science at FAU</strong>
+              Started Elite program in Advanced Materials and Processes (MAP) at Friedrich Alexander Universität Erlangen-Nürnberg (FAU).
+            </div>
+          </div>
+        </div>
 
-.timeline-content {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  flex: 1;
-  min-width: 0;
-  flex-wrap: wrap;
-}
+        <div class="timeline-item">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <img src="./images/BASF_logo.png" alt="BASF Internship" />
+            <div class="text">
+              <strong>Internship at BASF</strong>
+              Interned in Quantum Chemistry – Inorganic Team at BASF, Ludwigshafen.
+            </div>
+          </div>
+        </div>
 
-.timeline-content img {
-  width: 100px;
-  height: 80px;
-  object-fit: contain;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.timeline-content .text {
-  flex: 1 1 200px;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #e0f7f7;
-  font-weight: 600;
-  min-width: 0;
-}
-
-@media (max-width: 600px) {
-  .timeline-item {
-    flex-direction: column;
-  }
-  
-  .timeline-year {
-    width: auto;
-    text-align: left;
-    padding-right: 0;
-    margin-bottom: 0.5rem;
-  }
-
-  .timeline-line {
-    margin: 0 0 1rem 0;
-    width: 100%;
-    height: 4px;
-  }
-
-  .timeline-content {
-    flex-direction: row;
-    gap: 10px;
-  }
-  
-  .timeline-content img {
-    width: 80px;
-    height: 60px;
-  }
-}
-</style>
-<div class="timeline">
-  <div class="timeline-item">
-    <div class="timeline-year">2019–23</div>
-    <div class="timeline-line"></div>
-    <div class="timeline-content">
-      <img src="./images/IIPE_logo.png" alt="Bachelor's University" />
-      <div class="text">
-        <strong>Bachelor of Technology at IIPE</strong><br />
-        After securing 14687 AIR, admitted to Chemical Engineering at IIPE.<br />
-        Graduated with CGPA: 9.12/10 (German equivalent: 1.5)
-      </div>
+      </div><!-- /timeline -->
     </div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-year">2022</div>
-    <div class="timeline-line"></div>
-    <div class="timeline-content">
-      <img src="./images/IIPE_logo.png" alt="Internship IIPE" />
-      <div class="text">
-        <strong>Internship at IIPE</strong><br />
-        8-week summer research under Dr. Somnath Ghosh & Dr. Sourav Laha.<br />
-        Used Gaussian 16 to predict hydrogenation mechanism via FLP.
-      </div>
-    </div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-year">2023–26</div>
-    <div class="timeline-line"></div>
-    <div class="timeline-content">
-      <img src="./images/FAU_logo_2.png" alt="FAU University" />
-      <div class="text">
-        <strong>Masters in Science at FAU</strong><br />
-        Started Elite program in Advanced Materials and Processes (MAP) at Friedrich Alexander Universität Erlangen-Nürnberg (FAU).
-      </div>
-    </div>
-  </div>
-  <div class="timeline-item">
-    <div class="timeline-year">2025</div>
-    <div class="timeline-line"></div>
-    <div class="timeline-content">
-      <img src="./images/BASF_logo.png" alt="BASF Internship" />
-      <div class="text">
-        <strong>Internship at BASF</strong><br />
-        Interned in Quantum Chemistry – Inorganic Team at BASF, Ludwigshafen.
-      </div>
-    </div>
-  </div>
-</div>
+  </article>
 
-  </div>
-</article>
-
-
-  
   <script src="./js/mobile-menu-toggle.js"></script>
+
+  <script>
+    // Draw the vertical line once the timeline enters view
+    const timeline = document.getElementById('timeline');
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        timeline.classList.add('line-drawn');
+      }
+    }, { threshold: 0.05 }).observe(timeline);
+
+    // Staggered slide-in for each item
+    const items = document.querySelectorAll('.timeline-item');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 100);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
-
