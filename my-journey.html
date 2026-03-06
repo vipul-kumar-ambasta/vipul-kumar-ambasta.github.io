@@ -11,192 +11,277 @@
   <meta name="description" content="Split is a centrally-divided layout for a professional online presence with a big image or video left with alongside content." />
   <meta name="robots" content="index, follow" />
   <meta name="referrer" content="always" />
-
   <meta property="og:title" content="My Journey - Vipul Kumar Ambasta" />
-  <meta property="og:description" content="Split is a centrally-divided layout for a professional online presence with a big image or video left with alongside content." />
   <meta property="og:url" content="https://vipul-kumar-ambasta.github.io/" />
   <meta property="og:image" content="https://vipul-kumar-ambasta.github.io/images/social.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@onepagelove" />
 
   <link rel="icon" href="https://vipul-kumar-ambasta.github.io/favicon.ico" />
   <link rel="stylesheet" href="./css/split.min.1f28c3e02af279f939eab15e2fa7c330455a8b0559e563e767845492b94eb3c1.css" integrity="sha256-HyjD4Cryefk56rFeL6fDMEVaiwVZ5WPnZ4RUkrlOs8E=" crossorigin="anonymous" media="screen" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://vipul-kumar-ambasta.github.io/css/academicons.min.css">
   <link rel="stylesheet" href="https://vipul-kumar-ambasta.github.io/css/style.css" type="text/css" media="screen" />
 
   <style>
-    /* ── Timeline layout ── */
-    .timeline {
-      margin: 2rem auto;
-      max-width: 700px;
-      padding: 0 1rem;
-      box-sizing: border-box;
-      position: relative;
+    *, *::before, *::after { box-sizing: border-box; }
+
+    /* ── Progress bar ── */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(to right, #00e5c0, #4fc3f7);
+      z-index: 1000;
+      transition: width 0.1s linear;
     }
 
-    /* Animated vertical line running the full height */
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: calc(100px + 1rem + 2px); /* aligns with the .timeline-line column */
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(to bottom, #ccc, rgba(204,204,204,0.15));
-      transform-origin: top;
-      transform: scaleY(0);
-      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .timeline.line-drawn::before {
-      transform: scaleY(1);
-    }
-
-    .timeline-item {
+    /* ── Dot nav ── */
+    #section-nav {
+      position: fixed;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
       display: flex;
-      align-items: flex-start;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-      /* Scroll-reveal: starts hidden and offset */
-      opacity: 0;
-      transform: translateX(-28px);
-      transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
     }
-    .timeline-item.visible {
+    .nav-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .nav-dot.active {
+      background: #00e5c0;
+      transform: scale(1.5);
+    }
+
+    /* ── Full-page section ── */
+    .milestone {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 64px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .milestone:nth-child(odd)  { background: #0b1520; }
+    .milestone:nth-child(even) { background: #0d1c2e; }
+
+    /* Ghost year watermark */
+    .milestone::before {
+      content: attr(data-year);
+      position: absolute;
+      right: -0.05em;
+      bottom: -0.1em;
+      font-family: 'Lato', sans-serif;
+      font-weight: 900;
+      font-size: clamp(120px, 20vw, 260px);
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
+      pointer-events: none;
+      letter-spacing: -0.04em;
+    }
+
+    /* ── Two-column inner ── */
+    .milestone-inner {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 0;
+      align-items: center;
+      max-width: 1100px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── LEFT: logo ── */
+    .milestone-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding-right: 60px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .milestone.visible .milestone-logo {
       opacity: 1;
       transform: translateX(0);
     }
 
-    .timeline-year {
-      width: 100px;
-      min-width: 90px;
-      text-align: right;
-      padding-right: 20px;
-      font-weight: 700;
-      color: #ffffff;
-      flex-shrink: 0;
-      font-size: 1rem;
-      line-height: 1.2;
-      font-family: 'Lato', sans-serif;
-    }
-
-    /* The vertical divider per item — hidden now that we use the ::before line */
-    .timeline-line {
-      width: 3px;
-      background-color: transparent; /* line drawn by ::before instead */
-      margin-right: 20px;
-      min-height: 100px;
-      flex-shrink: 0;
-      position: relative;
-    }
-
-    /* Dot on the line */
-    .timeline-line::before {
-      content: '';
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #ccc;
-      border: 2px solid #0b1a28;
-      z-index: 1;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-    }
-    .timeline-item.visible .timeline-line::before {
-      animation: dotPulse 2s ease-out infinite 0.5s;
-    }
-
-    .timeline-content {
+    .logo-frame {
+      width: 220px;
+      height: 220px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
       display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      flex: 1;
-      min-width: 0;
-      flex-wrap: wrap;
-      /* Card hover effect */
-      padding: 14px 16px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-      transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16,1,0.3,1), background 0.3s ease;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
     }
-    .timeline-content:hover {
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(255,255,255,0.1);
-      transform: translateX(6px);
+    .milestone:hover .logo-frame {
+      border-color: rgba(0,229,192,0.35);
+      box-shadow: 0 0 60px rgba(0,229,192,0.07);
+      transform: scale(1.03);
     }
-
-    .timeline-content img {
-      width: 90px;
-      height: 72px;
+    .logo-frame img {
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      border-radius: 8px;
-      flex-shrink: 0;
     }
 
-    .timeline-content .text {
-      flex: 1 1 200px;
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #e0f7f7;
-      font-weight: 400;
-      min-width: 0;
-      font-family: 'Lato', sans-serif;
-    }
-
-    .timeline-content .text strong {
-      font-weight: 700;
-      font-size: 1.05rem;
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    @keyframes dotPulse {
-      0%   { box-shadow: 0 0 0 0 rgba(204,204,204,0.5); }
-      70%  { box-shadow: 0 0 0 8px rgba(204,204,204,0); }
-      100% { box-shadow: 0 0 0 0 rgba(204,204,204,0); }
-    }
-
-    /* Page title */
-    article h1 {
+    .logo-year {
       font-family: 'Lato', sans-serif;
       font-weight: 900;
-      font-size: 2.4rem;
-      color: #ffffff;
-      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      color: #00e5c0;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* ── RIGHT: content ── */
+    .milestone-content {
+      padding-left: 60px;
       opacity: 0;
-      transform: translateY(16px);
-      animation: fadeUp 0.6s ease forwards 0.1s;
+      transform: translateX(50px);
+      transition: opacity 0.7s ease 0.18s, transform 0.7s cubic-bezier(0.16,1,0.3,1) 0.18s;
+    }
+    .milestone.visible .milestone-content {
+      opacity: 1;
+      transform: translateX(0);
     }
 
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
+    .milestone-type {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #00e5c0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .milestone-type::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: #00e5c0;
     }
 
-    @media (max-width: 600px) {
-      .timeline::before { display: none; }
-      .timeline-item { flex-direction: column; }
-      .timeline-year {
-        width: auto;
-        text-align: left;
+    .milestone-title {
+      font-family: 'Lato', sans-serif;
+      font-weight: 900;
+      font-size: clamp(30px, 4.5vw, 52px);
+      color: #ffffff;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      margin-bottom: 10px;
+    }
+
+    .milestone-org {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: clamp(15px, 1.8vw, 20px);
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 28px;
+    }
+
+    .milestone-desc {
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(224,247,247,0.7);
+      font-weight: 300;
+      max-width: 500px;
+    }
+    .milestone-desc strong {
+      color: rgba(224,247,247,0.95);
+      font-weight: 700;
+    }
+
+    .milestone-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+    .tag {
+      font-family: 'Lato', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 5px 13px;
+      border-radius: 100px;
+      border: 1px solid rgba(0,229,192,0.25);
+      color: rgba(0,229,192,0.8);
+      background: rgba(0,229,192,0.06);
+    }
+
+    /* ── Scroll hint on first section ── */
+    .scroll-hint {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.28);
+      font-family: 'Lato', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      animation: bounce 2.2s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(7px); }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      .milestone { padding: 100px 24px 60px; }
+      .milestone-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 32px;
+      }
+      .milestone-logo {
+        align-items: center;
         padding-right: 0;
-        margin-bottom: 0.5rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        padding-bottom: 32px;
       }
-      .timeline-line {
-        margin: 0 0 1rem 0;
-        width: 100%;
-        height: 3px;
-      }
-      .timeline-line::before { display: none; }
-      .timeline-content { flex-direction: row; gap: 10px; padding: 10px; }
-      .timeline-content img { width: 80px; height: 60px; }
+      .logo-frame { width: 150px; height: 150px; }
+      .milestone-content { padding-left: 0; }
+      .milestone-type { justify-content: center; }
+      .milestone-tags { justify-content: center; }
+      .milestone-desc { margin: 0 auto; }
+      #section-nav { display: none; }
     }
   </style>
 </head>
 
 <body class="body">
+
+  <div id="progress-bar"></div>
 
   <nav class="navbar">
     <div class="nav-container">
@@ -213,87 +298,159 @@
     <li><a href="./gallery.html">Gallery</a></li>
   </ul>
 
-  <article style="max-width: 700px; margin: 2rem auto; padding: 1rem;">
-    <h1>My Journey</h1>
-    <div>
-      <div class="timeline" id="timeline">
+  <div id="section-nav">
+    <button class="nav-dot active" data-index="0" title="2019–23 IIPE B.Tech"></button>
+    <button class="nav-dot"        data-index="1" title="2022 Research Internship"></button>
+    <button class="nav-dot"        data-index="2" title="2023–26 FAU Masters"></button>
+    <button class="nav-dot"        data-index="3" title="2025 BASF Internship"></button>
+  </div>
 
-        <div class="timeline-item">
-          <div class="timeline-year">2019–23</div>
-          <div class="timeline-line"></div>
-          <div class="timeline-content">
-            <img src="./images/IIPE_logo.png" alt="Bachelor's University" />
-            <div class="text">
-              <strong>Bachelor of Technology at IIPE</strong>
-              After securing 14687 AIR, admitted to Chemical Engineering at IIPE.<br />
-              Graduated with CGPA: 9.12/10 (German equivalent: 1.5)
-            </div>
-          </div>
+  <!-- MILESTONE 1 -->
+  <section class="milestone" data-year="2019" id="ms-0">
+    <div class="milestone-inner">
+      <div class="milestone-logo">
+        <div class="logo-frame">
+          <img src="./images/IIPE_logo.png" alt="IIPE" />
         </div>
-
-        <div class="timeline-item">
-          <div class="timeline-year">2022</div>
-          <div class="timeline-line"></div>
-          <div class="timeline-content">
-            <img src="./images/IIPE_logo.png" alt="Internship IIPE" />
-            <div class="text">
-              <strong>Internship at IIPE</strong>
-              8-week summer research under Dr. Somnath Ghosh & Dr. Sourav Laha.<br />
-              Used Gaussian 16 to predict hydrogenation mechanism via FLP.
-            </div>
-          </div>
+        <div class="logo-year">2019 – 2023</div>
+      </div>
+      <div class="milestone-content">
+        <div class="milestone-type">Undergraduate Degree</div>
+        <div class="milestone-title">Bachelor of Technology</div>
+        <div class="milestone-org">Indian Institute of Petroleum &amp; Energy</div>
+        <div class="milestone-desc">
+          Secured <strong>AIR 14,687</strong> and joined Chemical Engineering at IIPE.
+          Graduated with a <strong>CGPA of 9.12 / 10</strong> — German equivalent of <strong>1.5</strong>.
         </div>
-
-        <div class="timeline-item">
-          <div class="timeline-year">2023–26</div>
-          <div class="timeline-line"></div>
-          <div class="timeline-content">
-            <img src="./images/FAU_logo_2.png" alt="FAU University" />
-            <div class="text">
-              <strong>Masters in Science at FAU</strong>
-              Started Elite program in Advanced Materials and Processes (MAP) at Friedrich Alexander Universität Erlangen-Nürnberg (FAU).
-            </div>
-          </div>
+        <div class="milestone-tags">
+          <span class="tag">Chemical Engineering</span>
+          <span class="tag">CGPA 9.12</span>
+          <span class="tag">IIPE Visakhapatnam</span>
         </div>
-
-        <div class="timeline-item">
-          <div class="timeline-year">2025</div>
-          <div class="timeline-line"></div>
-          <div class="timeline-content">
-            <img src="./images/BASF_logo.png" alt="BASF Internship" />
-            <div class="text">
-              <strong>Internship at BASF</strong>
-              Interned in Quantum Chemistry – Inorganic Team at BASF, Ludwigshafen.
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /timeline -->
+      </div>
     </div>
-  </article>
+    <div class="scroll-hint">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+      Scroll
+    </div>
+  </section>
+
+  <!-- MILESTONE 2 -->
+  <section class="milestone" data-year="2022" id="ms-1">
+    <div class="milestone-inner">
+      <div class="milestone-logo">
+        <div class="logo-frame">
+          <img src="./images/IIPE_logo.png" alt="IIPE" />
+        </div>
+        <div class="logo-year">2022</div>
+      </div>
+      <div class="milestone-content">
+        <div class="milestone-type">Research Internship</div>
+        <div class="milestone-title">Summer Research</div>
+        <div class="milestone-org">Indian Institute of Petroleum &amp; Energy</div>
+        <div class="milestone-desc">
+          8-week summer research under <strong>Dr. Somnath Ghosh</strong> &amp; <strong>Dr. Sourav Laha</strong>.
+          Used <strong>Gaussian 16</strong> to predict hydrogenation mechanisms via Frustrated Lewis Pairs (FLP).
+        </div>
+        <div class="milestone-tags">
+          <span class="tag">Gaussian 16</span>
+          <span class="tag">FLP Chemistry</span>
+          <span class="tag">Computational Chemistry</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MILESTONE 3 -->
+  <section class="milestone" data-year="2023" id="ms-2">
+    <div class="milestone-inner">
+      <div class="milestone-logo">
+        <div class="logo-frame" style="background: rgba(0,51,102,0.35);">
+          <img src="./images/FAU_logo_2.png" alt="FAU" />
+        </div>
+        <div class="logo-year">2023 – 2026</div>
+      </div>
+      <div class="milestone-content">
+        <div class="milestone-type">Masters Degree</div>
+        <div class="milestone-title">M.Sc. Advanced Materials &amp; Processes</div>
+        <div class="milestone-org">Friedrich-Alexander-Universität Erlangen-Nürnberg</div>
+        <div class="milestone-desc">
+          Enrolled in the <strong>Elite Programme MAP</strong> — one of Bavaria's most selective
+          graduate tracks — combining materials science, process engineering, and computational methods.
+        </div>
+        <div class="milestone-tags">
+          <span class="tag">Advanced Materials</span>
+          <span class="tag">Elite MAP</span>
+          <span class="tag">FAU Erlangen</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MILESTONE 4 -->
+  <section class="milestone" data-year="2025" id="ms-3">
+    <div class="milestone-inner">
+      <div class="milestone-logo">
+        <div class="logo-frame" style="background: rgba(92,138,0,0.2);">
+          <img src="./images/BASF_logo.png" alt="BASF" />
+        </div>
+        <div class="logo-year">2025</div>
+      </div>
+      <div class="milestone-content">
+        <div class="milestone-type">Industry Internship</div>
+        <div class="milestone-title">Quantum Chemistry Intern</div>
+        <div class="milestone-org">BASF SE · Ludwigshafen</div>
+        <div class="milestone-desc">
+          Joined the <strong>Quantum Chemistry – Inorganic Team</strong> at BASF's global
+          headquarters, applying cutting-edge computational methods to real industrial chemistry challenges.
+        </div>
+        <div class="milestone-tags">
+          <span class="tag">Quantum Chemistry</span>
+          <span class="tag">Inorganic Chemistry</span>
+          <span class="tag">BASF SE</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script src="./js/mobile-menu-toggle.js"></script>
-
   <script>
-    // Draw the vertical line once the timeline enters view
-    const timeline = document.getElementById('timeline');
-    new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) {
-        timeline.classList.add('line-drawn');
-      }
-    }, { threshold: 0.05 }).observe(timeline);
+    const milestones = document.querySelectorAll('.milestone');
+    const dots       = document.querySelectorAll('.nav-dot');
+    const bar        = document.getElementById('progress-bar');
 
-    // Staggered slide-in for each item
-    const items = document.querySelectorAll('.timeline-item');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 100);
-          observer.unobserve(entry.target);
+    // Reveal on scroll
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.25 });
+    milestones.forEach(el => revealObs.observe(el));
+
+    // Active dot
+    const dotObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const i = [...milestones].indexOf(e.target);
+          dots.forEach(d => d.classList.remove('active'));
+          if (dots[i]) dots[i].classList.add('active');
         }
       });
-    }, { threshold: 0.15 });
-    items.forEach(el => observer.observe(el));
+    }, { threshold: 0.5 });
+    milestones.forEach(el => dotObs.observe(el));
+
+    // Progress bar
+    window.addEventListener('scroll', () => {
+      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      bar.style.width = pct + '%';
+    });
+
+    // Dot click
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        milestones[+dot.dataset.index].scrollIntoView({ behavior: 'smooth' });
+      });
+    });
   </script>
 
 </body>
